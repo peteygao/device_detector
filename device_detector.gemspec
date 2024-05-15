@@ -11,15 +11,17 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Precise and fast user agent parser and device detector}
   spec.description   = %q{Precise and fast user agent parser and device detector, backed by the largest and most up-to-date agent and device database}
   spec.homepage      = 'http://podigee.github.io/device_detector'
-  spec.license       = 'LGPLv3'
+  spec.license       = 'LGPL-3.0'
+  spec.metadata      = { 'changelog_uri' => 'https://github.com/podigee/device_detector/blob/develop/CHANGELOG.md' }
 
-  spec.files         = `git ls-files -z`.split("\x0")
+  spec.files         = Dir["{lib,regexes}/**/*", "README.md", "LICENSE.txt", "CHANGELOG.md"]
   spec.executables   = []
-  spec.test_files    = spec.files.grep(%r{^(spec)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.7.5'
 
-  spec.add_development_dependency 'rspec' ,'~> 3.1', '>= 3.1.0'
-  spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'minitest'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'pry', '>= 0.10'
+  spec.add_development_dependency 'rubocop', '0.85.1'
 end
